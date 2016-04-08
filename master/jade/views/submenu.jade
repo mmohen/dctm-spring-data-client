@@ -1,0 +1,21 @@
+h3
+    span(ng-hide="searchTerm") Student Entries
+    span(ng-show="searchTerm") Search Results for: {{searchTerm}}
+
+.row(infinite-scroll='viewStudent()', infinite-scroll-disabled='loadingEntries', infinite-scroll-distance='1')
+    .col-lg-4.col-md-6.col-sm-12(ng-repeat='entry in students')
+        .panel.enty-box(animate="", data-play="fadeIn", data-offset="0")
+            .panel-heading
+                h3
+                    a(ui-sref="{{getState(entry.name)}}") {{entry.name }}
+            .panel-body
+                .h4
+                    {{entry.department}}
+                .entryContent(read-more)
+                    | {{entry.rollnumber}}
+    h2(ng-show="contestEntries.length == 0 && !loadingEntries").text-center
+        span(ng-hide="searchTerm") No entries in the contest so far
+        span(ng-show="searchTerm") No results for {{searchTerm}}
+    h2(ng-show="loadingEntries").text-center
+        span(ng-hide="searchTerm") Loading...
+        span(ng-show="searchTerm") Searching...

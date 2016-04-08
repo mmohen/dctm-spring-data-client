@@ -1,0 +1,26 @@
+<h3>
+   <span ng-hide="searchTerm">Student Entries</span>
+   <span ng-show="searchTerm">Search Results for: {{searchTerm}}</span>
+</h3>
+<div infinite-scroll="viewStudent()" infinite-scroll-disabled="loadingEntries" infinite-scroll-distance="1" class="row">
+   <div ng-repeat="entry in students" class="col-lg-4 col-md-6 col-sm-12">
+      <div animate="" data-play="fadeIn" data-offset="0" class="panel enty-box">
+         <div class="panel-heading">
+            <h3><a ui-sref="{{getState(entry.name)}}">{{entry.name }}</a>
+            </h3>
+         </div>
+         <div class="panel-body">
+            <div class="h4">{{entry.department}}</div>
+            <div read-more="read-more" class="entryContent">{{entry.rollnumber}}</div>
+         </div>
+      </div>
+   </div>
+   <h2 ng-show="contestEntries.length == 0 &amp;&amp; !loadingEntries" class="text-center">
+      <span ng-hide="searchTerm">No entries in the contest so far</span>
+      <span ng-show="searchTerm">No results for {{searchTerm}}</span>
+   </h2>
+   <h2 ng-show="loadingEntries" class="text-center">
+      <span ng-hide="searchTerm">Loading...</span>
+      <span ng-show="searchTerm">Searching...</span>
+   </h2>
+</div>

@@ -1,0 +1,19 @@
+[
+  {
+    "text": "Menu Heading",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+  {
+    "text": "Create Entry",
+    "sref": "app.singleview",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.SINGLEVIEW"
+  },
+  {
+    "text": "View Entries",
+    "sref": "app.submenu",
+    "icon": "icon-folder",    
+    "translate": "sidebar.nav.menu.SUBMENU"
+  }
+]
